@@ -1,0 +1,73 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.ToggleButton?>
+<BorderPane fx:id="mainBorderPane" fx:controller="com.adamsansone.todolist.Controller"
+            xmlns:fx="http://javafx.com/fxml" stylesheets="@styles.css">
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="Add Item" onAction="#showAddItemDialog"/>
+                    <MenuItem text="Edit Item"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#handleExit"/>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <HBox styleClass="toolbar">
+                    <Button onAction="#showAddItemDialog">
+                        <tooltip>
+                            <Tooltip text="Add a new item"/>
+                        </tooltip>
+                        <graphic>
+                            <ImageView>
+                                <Image url="@icons/add-icon.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button fx:id="deleteButton">
+                        <tooltip>
+                            <Tooltip text="Delete a item"/>
+                        </tooltip>
+                        <graphic>
+                            <ImageView>
+                                <Image url="@icons/delete-icon.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <ToggleButton styleClass="filterBtn" fx:id="toggleBtn" text="Filter" onAction="#handleToggleBtn">
+                        <tooltip>
+                            <Tooltip text="Filter items due today"/>
+                        </tooltip>
+                    </ToggleButton>
+                </HBox>
+            </ToolBar>
+        </VBox>
+    </top>
+    <left>
+        <ListView fx:id="todoListView" onKeyPressed="#handleKeyPressed"/>
+    </left>
+    <center>
+        <VBox styleClass="vbox">
+            <TextArea fx:id="itemDetailsText" VBox.vgrow="ALWAYS"/>
+            <HBox>
+                <Label text="Due: "/>
+                <Label fx:id="deadlineLabel"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

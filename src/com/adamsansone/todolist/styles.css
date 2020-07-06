@@ -1,0 +1,22 @@
+.vbox {
+    -fx-background-color: white;
+    -fx-font-family: 'sans-serif';
+    -fx-font-size: 20;
+}
+
+.dialogPane {
+     -fx-vgap: 10;
+     -fx-hgap: 10;
+}
+
+TextArea {
+    -fx-wrap-text: true;
+}
+
+.toolbar {
+    -fx-spacing: 10;
+}
+
+.filterBtn {
+    -fx-font-size: 15;
+}
